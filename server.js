@@ -1,10 +1,14 @@
 // server.js
 // where your node app starts
 
+// require('dotenv').config()
 const express = require("express");
 const app = express();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+
+//To remove CORS policy error
+app.use(cors());
 
 //Pool to connect to DB
 const pool = require("./db")
@@ -14,9 +18,6 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended: true
 }))
-
-//To remove CORS policy error
-app.use(cors());
 
 //Basic get function to check
 app.get('/', (req, res) => {
