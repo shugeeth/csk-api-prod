@@ -7,6 +7,11 @@ const app = express();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','https://shugeeth.github.io');
+    next();
+})
+
 //To remove CORS policy error
 app.use(cors());
 
