@@ -117,7 +117,7 @@ app.post('/api/login', (req, res) => {
 });
 
 //Update student access details in database
-app.put('/api/updateStudentAccess', verifyToken, function(req, res) {
+app.post('/api/updateStudentAccess', verifyToken, function(req, res) {
     const students = req.body.students;    
     jwt.verify(req.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
         if(err) {
@@ -155,7 +155,7 @@ app.put('/api/updateStudentAccess', verifyToken, function(req, res) {
 });
 
 //Update student event grid in database
-app.put('/api/updateStudentsEvents', verifyToken, function(req, res) {
+app.post('/api/updateStudentsEvents', verifyToken, function(req, res) {
     
     const insertRows = req.body.insertRows;
     const deleteRows = req.body.deleteRows;    
