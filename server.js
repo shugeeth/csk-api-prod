@@ -91,7 +91,7 @@ app.post('/api/login', (req, res) => {
                                     from fellows as f, students as s, events as e, events_category as ec, students_events_mapping as sem
                                     where e.event_category_id = ec.event_category_id and
                                     sem.event_id = e.event_id and
-                                    sem.student_id = sem.student_id and
+                                    sem.student_id = s.student_id and
                                     s.fellow_id = f.fellow_id and
                                     f.fellow_id = `+fid+`
                                     group by e.event_date, ec.mode, sem.event_id, sem.student_id
